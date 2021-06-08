@@ -2,7 +2,7 @@
 class Poker
     def parse(hs)
         handy={}
-        h=0 #h='a'
+        h=0
         jqka={'J':11,'Q':12,'K':13,'A':14}
         hs.each do |i| 
             handy[h]=[[],[]]
