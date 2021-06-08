@@ -1,11 +1,10 @@
 
 class Poker
-
     def parse(hs)
         handy={}
         h=0 #h='a'
         jqka={'J':11,'Q':12,'K':13,'A':14}
-        hs.each do |i|
+        hs.each do |i| 
             handy[h]=[[],[]]
             i.each do |v|
                 v=[v[0..-2],v[-1]]
@@ -35,7 +34,6 @@ class Poker
     def isflush?(cards)
         symbols=cards[1]
         v=symbols.uniq.size == 1 ? cards[0].max * 99 : 0 
-        v
     end
 
     def isfull?(cards)
@@ -47,24 +45,22 @@ class Poker
     def isfourk?(cards)
         cards=cards[0]
         cards= cards.inject(Hash.new(0)) {|h,v| h[v] += 1; h } #DRY#   
-        (cards.values.any? 4) ? cards.key(4) * 1100 : 0  #replace true with int points
+        (cards.values.any? 4) ? cards.key(4) * 1100 : 0  
     end
 
     def isthreeortwo(cards)
         cards=cards[0]
         if cards.uniq.length == 3
             cards2= cards.inject(Hash.new(0)) {|h,v| h[v] += 1; h } #DRY#
-            if cards2.values.max < 3 #two pairs
+            if cards2.values.max < 3 
                 x= cards.sort
                 f= [(cards.detect {|e| cards.rindex(e) != cards.index(e) })] #DRY#
                 y= x-f
                 z=  [(y.detect {|e| y.rindex(e) != y.index(e)})] #DRY#
-                290 * z[0] + 30*f[0]  #+ (x-f-z)[0] #vals
-            else
-                cards2.key(3) * 2225 #
+                290 * z[0] + 30*f[0]  
+            else cards2.key(3) * 2225 
             end
-        else 
-            0
+        else  0
         end
     end
 
@@ -115,7 +111,6 @@ class Poker
                 end
                 r
             end
-        end
-            
+        end   
     end
 end
