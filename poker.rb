@@ -72,12 +72,9 @@ class Poker
         k= cond.count == 1  && (w.uniq.size == 5) ? true : false
         xk= x and k
         z=0
-         if xk 
-           z= z+ 9999 * w.max
-         elsif k 
-           z= z+ 2245 * w.max
-         end
-         z
+        z= z+ 9999 * w.max if xk
+        z= z+ 2245 * w.max if k
+        z
     end
 
     def pair?(cards)
@@ -107,7 +104,7 @@ class Poker
             else 
                 r=[]
                 @hands.each do |i|
-                    i[1][2] == result.max ? r[i[0]]=@original[i[0]] : p "Something went wrong."                    
+                    i[1][2] == result.max ? r[i[0]]=@original[i[0]] : "Something went wrong."                    
                 end
                 r
             end
