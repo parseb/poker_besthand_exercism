@@ -107,7 +107,7 @@ class Poker
             else 
                 r=[]
                 @hands.each do |i|
-                    i[1][2] == result.max ? r[i[0]]=@original[i[0]] : "Something went wrong."                    
+                    i[1][2] == result.max ? r[i[0]]=@original[i[0]] : p "Something went wrong."                    
                 end
                 r
             end
