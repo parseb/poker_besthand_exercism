@@ -67,18 +67,13 @@ class Poker
     def issorsf?(cards) 
         w= cards[0]
         s= cards[1]
-        x= s.uniq.size == 1 
+        x= s.uniq.size == 1 ? true : false
         cond= w.sort.slice_when{|prev,cur| cur != prev + 1}
-        k= cond.count == 1  && (w.uniq.size == 5) 
+        k= cond.count == 1  && (w.uniq.size == 5) ? true : false
         xk= x and k
         z=0
-<<<<<<< HEAD
-        z= z+ 9999 * w.max if xk 
-        z= z+ 2245 * w.max if k and not x 
-=======
         z= z+ 9999 * w.max if xk
-        z= z+ 2245 * w.max if k
->>>>>>> refs/remotes/origin/master
+        z= z+ 2245 * w.max if ( k and not xk )    
         z
     end
 
