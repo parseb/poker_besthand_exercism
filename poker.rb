@@ -2,7 +2,7 @@
 class Poker
     def parse(hs)
         handy={}
-        h=0 #h='a'
+        h=0
         jqka={'J':11,'Q':12,'K':13,'A':14}
         hs.each do |i| 
             handy[h]=[[],[]]
@@ -67,17 +67,14 @@ class Poker
     def issorsf?(cards) 
         w= cards[0]
         s= cards[1]
-        x= s.uniq.size == 1 ? true : false
+        x= s.uniq.size == 1 
         cond= w.sort.slice_when{|prev,cur| cur != prev + 1}
-        k= cond.count == 1  && (w.uniq.size == 5) ? true : false
+        k= cond.count == 1  && (w.uniq.size == 5) 
         xk= x and k
         z=0
-         if xk 
-           z= z+ 9999 * w.max
-         elsif k 
-           z= z+ 2245 * w.max
-         end
-         z
+        z= z+ 9999 * w.max if xk 
+        z= z+ 2245 * w.max if k and not x 
+        z
     end
 
     def pair?(cards)
