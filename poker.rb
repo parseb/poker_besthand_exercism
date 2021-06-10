@@ -72,8 +72,13 @@ class Poker
         k= cond.count == 1  && (w.uniq.size == 5) 
         xk= x and k
         z=0
+<<<<<<< HEAD
         z= z+ 9999 * w.max if xk 
         z= z+ 2245 * w.max if k and not x 
+=======
+        z= z+ 9999 * w.max if xk
+        z= z+ 2245 * w.max if k
+>>>>>>> refs/remotes/origin/master
         z
     end
 
