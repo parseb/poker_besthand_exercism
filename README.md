@@ -1,14 +1,14 @@
-# Poker
+# Poker Hand Ranking
 
 This solution aims to rank hands by a proxy score so that:
 
-(1) A higher order class hand will always have a higher score than a lower order one.
-	ex: 9H 3D 9D 8C 7H (pair) < 2H 3H 4H 5H 6H (straight flush) 
-	
-(2) Hands belonging to the same class are differantiated based on face value (kicker or highest card)
+1.  A higher order class hand will always have a higher score than a lower order one.
+ 	ex: 9H 3D 9D 8C 7H (pair) < 2H 3H 4H 5H 6H (straight flush) 
+
+2.  Hands belonging to the same class are differantiated based on face value (kicker or highest card)
 
 Features:
-- Hands are isolated from context and compared only by their score. 
+-  Context agnostic when calculating score.
 - Takes an unlimited number of hands as input.
 
 
