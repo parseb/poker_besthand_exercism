@@ -44,19 +44,19 @@ class Poker
     
     def isfourk?(cards)
         cards=cards[0]
-        cards= cards.inject(Hash.new(0)) {|h,v| h[v] += 1; h } #DRY#   
+        cards= cards.inject(Hash.new(0)) {|h,v| h[v] += 1; h } #
         (cards.values.any? 4) ? cards.key(4) * 1100 : 0  
     end
 
     def isthreeortwo(cards)
         cards=cards[0]
         if cards.uniq.length == 3
-            cards2= cards.inject(Hash.new(0)) {|h,v| h[v] += 1; h } #DRY#
+            cards2= cards.inject(Hash.new(0)) {|h,v| h[v] += 1; h } #
             if cards2.values.max < 3 
                 x= cards.sort
-                f= [(cards.detect {|e| cards.rindex(e) != cards.index(e) })] #DRY#
+                f= [(cards.detect {|e| cards.rindex(e) != cards.index(e) })] #
                 y= x-f
-                z=  [(y.detect {|e| y.rindex(e) != y.index(e)})] #DRY#
+                z=  [(y.detect {|e| y.rindex(e) != y.index(e)})] #
                 290 * z[0] + 30*f[0]  
             else cards2.key(3) * 2225 
             end
@@ -80,11 +80,12 @@ class Poker
     def pair?(cards)
         c= cards[0]
         u= c.uniq
-        u.size == 4 ? (c.detect {|e| c.rindex(e) != c.index(e) }) * 10 : 0      
+        u.size == 4 ? (c.detect {|e| c.rindex(e) != c.index(e) }) * 60 : 0      
     end
     
     def highest(cards)
-        cards[0].sum
+        x=cards[0].sort
+        x[4]* 60 + x[3] * 4 + x[2]*3 + x[1] * 2 + x[0] 
     end
 
     def best_hand
