@@ -85,7 +85,9 @@ class Poker
     
     def highest(cards)
         x=cards[0].sort
-        x[4]* 60 + x[3] * 4 + x[2]*3 + x[1] * 2 + x[0] 
+        result_h=(x[4]* 1400 + x[3] * 140 + x[2]*14 + x[1] * 3 + x[0]) %100 
+        #order of orders - intended ordering fails here or propagates above. 
+        #todo check all 2,598,960 cases 
     end
 
     def best_hand
